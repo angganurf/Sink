@@ -3,7 +3,7 @@ import type { z } from 'zod'
 import { parsePath, withQuery } from 'ufo'
 
 function isBot(ua: string) {
-  const botRegex = /bot|crawler|spider|facebook|whatsapp|discord|twitter|slack|telegram|preview|vkShare|skype|linkedin/i
+  const botRegex = /bot|crawler|spider|facebook|meta|whatsapp|discord|twitter|slack|telegram|preview|vkShare|skype|linkedin/i
   return botRegex.test(ua)
 }
 

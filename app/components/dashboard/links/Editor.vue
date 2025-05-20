@@ -25,38 +25,37 @@ const isEdit = !!props.link.id
 const EditLinkSchema = LinkSchema.pick({
   url: true,
   slug: true,
+  title: true,
+  description: true,
+  image: true,
 }).extend({
   optional: LinkSchema.omit({
     id: true,
     url: true,
     slug: true,
+    title: true,
+    description: true,
+    image: true,
     createdAt: true,
     updatedAt: true,
   }).extend({
     expiration: z.coerce.date().optional(),
 
-    // Tambahan OpenGraph
-    title: z.string().optional(),
-    description: z.string().optional(),
-    image: z.string().url().optional(),
   }).optional(),
 })
 const fieldConfig = {
   slug: {
     disabled: isEdit,
   },
+  description: {
+    component: 'textarea',
+  },
+
   optional: {
     comment: {
       component: 'textarea',
     },
-    title: {},
-    description: {
-      component: 'textarea',
-    },
-    image: {
-      label: 'Image',
-      placeholder: 'https://example.com/image.jpg',
-    },
+
   },
 }
 
@@ -74,11 +73,11 @@ const form = useForm({
   initialValues: {
     slug: link.value.slug,
     url: link.value.url,
+    title: link.value.title,
+    description: link.value.description,
+    image: link.value.image,
     optional: {
       comment: link.value.comment,
-      title: link.value.title,
-      description: link.value.description,
-      image: link.value.image,
     },
   },
   validateOnMount: isEdit,
@@ -119,6 +118,9 @@ async function onSubmit(formData) {
   const link = {
     url: formData.url,
     slug: formData.slug,
+    title: formData.title,
+    description: formData.description,
+    image: formData.image,
     ...(formData.optional || []),
     expiration: formData.optional?.expiration ? date2unix(formData.optional?.expiration, 'end') : undefined,
   }
