@@ -32,14 +32,15 @@ const EditLinkSchema = LinkSchema.pick({
     slug: true,
     createdAt: true,
     updatedAt: true,
-    title: true,
-    description: true,
-    image: true,
   }).extend({
     expiration: z.coerce.date().optional(),
+
+    // Tambahan OpenGraph
+    title: z.string().optional(),
+    description: z.string().optional(),
+    image: z.string().url().optional(),
   }).optional(),
 })
-
 const fieldConfig = {
   slug: {
     disabled: isEdit,
@@ -47,6 +48,14 @@ const fieldConfig = {
   optional: {
     comment: {
       component: 'textarea',
+    },
+    title: {},
+    description: {
+      component: 'textarea',
+    },
+    image: {
+      label: 'Image',
+      placeholder: 'https://example.com/image.jpg',
     },
   },
 }
@@ -67,6 +76,9 @@ const form = useForm({
     url: link.value.url,
     optional: {
       comment: link.value.comment,
+      title: link.value.title,
+      description: link.value.description,
+      image: link.value.image,
     },
   },
   validateOnMount: isEdit,

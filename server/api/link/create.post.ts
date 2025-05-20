@@ -28,6 +28,9 @@ export default eventHandler(async (event) => {
         expiration,
         url: link.url,
         comment: link.comment,
+        title: link.title,
+        description: link.description,
+        image: link.image,
       },
     })
     setResponseStatus(event, 201)
