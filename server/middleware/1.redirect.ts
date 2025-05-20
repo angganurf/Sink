@@ -46,19 +46,19 @@ export default eventHandler(async (event) => {
           <html lang="en">
           <head>
             <meta charset="UTF-8">
-            <title>${link.title | link.description || 'Link Preview'}</title>
+            <title>${link.title || 'Socionity Title'} | ${link.description || 'Socionity Description'}</title>
             <meta name='viewport' content='width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no' />
             <meta name='format-detection' content='telephone=no' />
             <meta http-equiv='X-UA-Compatible' content='IE=edge' />
             <meta name='MobileOptimized' content='176' />
             <meta name='HandheldFriendly' content='True' />
             <meta name='robots' content='index, follow' /> 
-            <meta property='og:type' content='website>           
-            <meta property="og:title" content="${link.title | link.description || 'Link Preview'}" />
+            <meta property='og:type' content='website'>           
+            <meta property="og:title" content="${link.title || 'Socionity Title'} | ${link.description || 'Socionity Description'}" />
             <meta property="og:description" content="${link.description || ''}" />
             <meta property='og:site_name' content='Socionity'>
             <meta name='twitter:card' content='summary'>
-            <meta name='twitter:title' content="${link.title | link.description || 'Link Preview'}">
+            <meta name='twitter:title' content="${link.title || 'Socionity Title'} | ${link.description || 'Socionity Description'}">
             <meta name='twitter:description' content="${link.description || ''}">
             <meta name='twitter:image' content="${link.image || ''}">
             <link rel='canonical' href="${getRequestURL(event)}" />
@@ -81,7 +81,7 @@ export default eventHandler(async (event) => {
                         </div>
                       </div>
                       <div class='col-12'>
-                        <h1 style='text-align: center;'>${link.title | link.description || 'Link Preview'}</h1>
+                        <h1 style='text-align: center;'>${link.title || 'Socionity Title'} | ${link.description || 'Socionity Description'}</h1>
                       </div>
                       <div class='col-12'>
                         <div href='#' class='link-btn' style='background: transparent; border-width: 0px; border-color: #000000; border-style: solid; box-shadow: 0px 0px 20px 0px #00000010; text-align: center;'>
@@ -96,7 +96,7 @@ export default eventHandler(async (event) => {
                           <div>
                             <img src='https://socionity.uk/assets/img/wa.gif' class='link-btn-image' loading='lazy' alt='Private Content Image' style='width:1px;'>
                           </div>
-                          <span style='color:#fff;'>${link.title | link.description || 'Link Preview'}</span>
+                          <span style='color:#fff;'>${link.title || 'Socionity Title'} | ${link.description || 'Socionity Description'}</span>
                         </a>
                       </div>
                     </div>
