@@ -1,24 +1,24 @@
 <script setup>
-import { BloggerIcon, GitHubIcon, GmailIcon, MastodonIcon, TelegramIcon, XIcon } from 'vue3-simple-icons'
+import { BloggerIcon, GmailIcon, TelegramIcon, XIcon } from 'vue3-simple-icons'
 
-const { title, email, telegram, blog, twitter, mastodon, github } = useAppConfig()
+const { title, email, telegram, blog, twitter } = useAppConfig()
 </script>
 
 <template>
   <section class="md:pt-6">
     <div class="container flex flex-col items-center py-8 mx-auto sm:flex-row">
       <a
-        href="https://sink.cool"
+        href="https://fbme.life"
         class="text-xl font-black leading-none text-gray-900 select-none dark:text-gray-100 logo"
         :title="title"
       >{{ title }}</a>
       <a
         class="mt-4 text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l sm:border-gray-200 sm:mt-0"
-        href="https://html.zone"
+        href="https://fbme.life"
         target="_blank"
-        title="HTML.ZONE"
+        title="Socionity"
       >
-        &copy; {{ new Date().getFullYear() }} Products of HTML.ZONE
+        &copy; {{ new Date().getFullYear() }} Products of Socionity
       </a>
       <span
         class="inline-flex justify-center mt-4 space-x-5 sm:ml-auto sm:mt-0 sm:justify-start"
@@ -72,31 +72,6 @@ const { title, email, telegram, blog, twitter, mastodon, github } = useAppConfig
           />
         </a>
 
-        <a
-          v-if="mastodon"
-          :href="mastodon"
-          target="_blank"
-          title="Mastodon"
-          class="text-gray-400 hover:text-gray-500"
-        >
-          <span class="sr-only">{{ $t('layouts.footer.social.mastodon') }}</span>
-          <MastodonIcon
-            class="w-6 h-6"
-          />
-        </a>
-
-        <a
-          v-if="github"
-          :href="github"
-          target="_blank"
-          title="GitHub"
-          class="text-gray-400 hover:text-gray-500"
-        >
-          <span class="sr-only">{{ $t('layouts.footer.social.github') }}</span>
-          <GitHubIcon
-            class="w-6 h-6"
-          />
-        </a>
       </span>
     </div>
   </section>
