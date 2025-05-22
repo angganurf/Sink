@@ -1,5 +1,5 @@
 export default defineAppConfig({
-  title: 'Sink',
+  title: 'Socionity',
   email: '#',
   github: '#',
   twitter: '#',
