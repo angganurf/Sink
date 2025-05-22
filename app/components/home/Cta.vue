@@ -8,14 +8,5 @@
     <p class="mt-4 text-lg text-slate-400 md:text-xl">
       {{ $t('home.cta.description') }}
     </p>
-    <div class="flex mt-5">
-      <HomeLink
-        href="https://github.com/ccbikai/sink?tab=readme-ov-file#%EF%B8%8F-deployment"
-        type="inverted"
-        :title="$t('home.cta.button')"
-      >
-        {{ $t('home.cta.button') }}
-      </HomeLink>
-    </div>
   </div>
 </template>
