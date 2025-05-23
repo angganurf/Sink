@@ -130,19 +130,7 @@ function copyLink() {
             class="w-auto p-0"
             :hide-when-detached="false"
           >
-            <DashboardLinksEditor
-              :link="link"
-              @update:link="updateLink"
-            >
-              <div
-                class="cursor-pointer flex select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none hover:bg-accent hover:text-accent-foreground"
-              >
-                <SquarePen
-                  class="w-5 h-5 mr-2"
-                />
-                {{ $t('common.edit') }}
-              </div>
-            </DashboardLinksEditor>
+        
 
             <Separator />
 
