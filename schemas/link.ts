@@ -9,11 +9,12 @@ export const nanoid = (length: number = slugDefaultLength) => customAlphabet('23
 
 export const LinkSchema = z.object({
   id: z.string().trim().max(26).default(nanoid(10)),
+  domain: z.string().trim().max(255),
+  slug: z.string().trim().max(2048).regex(new RegExp(slugRegex)).default(nanoid()),
   url: z.string().trim().url().max(2048),
   title: z.string().trim().max(2048).optional(),
   description: z.string().trim().max(2048).optional(),
   image: z.string().trim().url().max(2048).optional(),
-  slug: z.string().trim().max(2048).regex(new RegExp(slugRegex)).default(nanoid()),
   comment: z.string().trim().max(2048).optional(),
   createdAt: z.number().int().safe().default(() => Math.floor(Date.now() / 1000)),
   updatedAt: z.number().int().safe().default(() => Math.floor(Date.now() / 1000)),

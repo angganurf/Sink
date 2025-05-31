@@ -26,11 +26,12 @@ export default eventHandler(async (event) => {
       expiration,
       metadata: {
         expiration,
+        domain: link.domain,
         url: link.url,
-        comment: link.comment,
         title: link.title,
         description: link.description,
         image: link.image,
+        comment: link.comment,
       },
     })
     setResponseStatus(event, 201)

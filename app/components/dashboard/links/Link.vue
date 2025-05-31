@@ -130,8 +130,7 @@ function copyLink() {
             class="w-auto p-0"
             :hide-when-detached="false"
           >
-        
-
+      
             <Separator />
 
             <DashboardLinksDelete

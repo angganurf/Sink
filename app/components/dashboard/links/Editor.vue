@@ -23,14 +23,23 @@ const dialogOpen = ref(false)
 const isEdit = !!props.link.id
 
 const EditLinkSchema = LinkSchema.pick({
+  type: true,
+  domain: true,
   url: true,
+  fake_url: true,
   slug: true,
   title: true,
   description: true,
   image: true,
+  country_allowed: true,
+  country_blocked: true,
+  app_id: true,
+  og_type: true,
+  username: true,
 }).extend({
   optional: LinkSchema.omit({
     id: true,
+    domain: true,
     url: true,
     slug: true,
     title: true,
@@ -44,6 +53,14 @@ const EditLinkSchema = LinkSchema.pick({
   }).optional(),
 })
 const fieldConfig = {
+  domain: {
+    component: 'select',
+    options: [
+      { label: t('links.type.link'), value: 'link' },
+      { label: t('links.type.file'), value: 'file' },
+      { label: t('links.type.text'), value: 'text' },
+    ],
+  },
   slug: {
     disabled: isEdit,
   },
@@ -71,6 +88,7 @@ const dependencies = [
 const form = useForm({
   validationSchema: toTypedSchema(EditLinkSchema),
   initialValues: {
+    domain: link.value.domain || '',
     slug: link.value.slug,
     url: link.value.url,
     title: link.value.title,
@@ -116,6 +134,7 @@ onMounted(() => {
 
 async function onSubmit(formData) {
   const link = {
+    domain: formData.domain,
     url: formData.url,
     slug: formData.slug,
     title: formData.title,
