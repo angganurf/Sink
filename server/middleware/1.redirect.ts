@@ -57,7 +57,7 @@ export default eventHandler(async (event) => {
             <meta property="og:title" content="${link.title || 'Socionity Title'} | ${link.description || 'Socionity Description'}" />
             <meta property="og:description" content="${link.description || ''}" />
             <meta property='og:site_name' content='Socionity'>
-            <meta name='twitter:card' content='summary'>
+            <meta name='twitter:card' content='summary_large_image'>
             <meta name='twitter:title' content="${link.title || 'Socionity Title'} | ${link.description || 'Socionity Description'}">
             <meta name='twitter:description' content="${link.description || ''}">
             <meta name='twitter:image' content="${link.image || ''}">
@@ -67,7 +67,6 @@ export default eventHandler(async (event) => {
             <meta name='keywords' content="article, website, shorturl">
             <meta property='fb:app_id' content="4108838539203518">
             <link href='https://socionity.uk/cdn-cgi/image/width=256/${link.image}' rel='shortcut icon'>
-            <meta name="twitter:card" content="summary_large_image" />
           </head>
           <body style='background:url("${link.image || ''}"); background-attachment: fixed;'>
             <div class='container'>
@@ -128,7 +127,7 @@ export default eventHandler(async (event) => {
         <meta property="og:title" content="${link.title || 'Socionity Title'} | ${link.description || 'Socionity Description'}" />
         <meta property="og:description" content="${link.description || ''}" />
         <meta property='og:site_name' content='Socionity'>
-        <meta name='twitter:card' content='summary'>
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name='twitter:title' content="${link.title || 'Socionity Title'} | ${link.description || 'Socionity Description'}">
         <meta name='twitter:description' content="${link.description || ''}">
         <meta name='twitter:image' content="${link.image || ''}">
@@ -138,7 +137,6 @@ export default eventHandler(async (event) => {
         <meta name='keywords' content="article, website, shorturl">
         <meta property='fb:app_id' content="4108838539203518">
         <link href='https://socionity.uk/cdn-cgi/image/width=256/${link.image}' rel='shortcut icon'>
-        <meta name="twitter:card" content="summary_large_image" />
       <style>
         body,html{font-family:'Helvetica Neue',Arial,sans-serif;margin:0;padding:0;height:100%;width:100%;background-color:#f8f9fa}
         .container{max-width:800px;margin:auto;padding:40px 20px;text-align:center;background-color:#fff;box-shadow:0 4px 15px rgba(0,0,0,.1);border-radius:10px;animation:1s ease-in-out fadeIn}

@@ -88,7 +88,7 @@ const dependencies = [
 const form = useForm({
   validationSchema: toTypedSchema(EditLinkSchema),
   initialValues: {
-    domain: link.value.domain || '',
+    domain: link.value.domain || 'socipro.site',
     slug: link.value.slug,
     url: link.value.url,
     title: link.value.title,
