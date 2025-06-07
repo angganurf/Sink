@@ -31,14 +31,15 @@ export default eventHandler(async (event) => {
     if (link) {
       event.context.link = link
 
-      try {
-        await useAccessLog(event)
-      }
-      catch (error) {
-        console.error('Failed write access log:', error)
-      }
-
-      const ua = getHeader(event, 'user-agent') || ''
+    const ua = getHeader(event, 'user-agent') || ''
+      if (!isBot(ua)) {
+          try {
+            await useAccessLog(event)
+          } catch (error) {
+            console.error('Failed write access log:', error)
+          }
+        }
+      
       if (isBot(ua)) {
         // Generate OG HTML for bots
         const html = `
