@@ -16,14 +16,14 @@ const emit = defineEmits(['update:link'])
 const { t } = useI18n()
 const editPopoverOpen = ref(false)
 
-const { host, origin } = location
+const { host } = location
 
 function getLinkHost(url) {
   const { host } = parseURL(url)
   return host
 }
 
-const shortLink = computed(() => `${origin}/${props.link.slug}`)
+const shortLink = computed(() => `${props.link.domain}/${props.link.slug}`)
 const linkIcon = computed(() => `https://unavatar.io/${getLinkHost(props.link.url)}?fallback=https://sink.cool/icon.png`)
 
 const { copy, copied } = useClipboard({ source: shortLink.value, copiedDuring: 400 })
@@ -64,7 +64,7 @@ function copyLink() {
         <div class="flex-1 overflow-hidden">
           <div class="flex items-center">
             <div class="font-bold leading-5 truncate text-md">
-              {{ host }}/{{ link.slug }}
+              {{ link.domain }}/{{ link.slug }}
             </div>
 
             <CopyCheck
@@ -130,7 +130,6 @@ function copyLink() {
             class="w-auto p-0"
             :hide-when-detached="false"
           >
-      
             <Separator />
 
             <DashboardLinksDelete

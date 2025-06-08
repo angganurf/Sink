@@ -53,14 +53,7 @@ const EditLinkSchema = LinkSchema.pick({
   }).optional(),
 })
 const fieldConfig = {
-  domain: {
-    component: 'select',
-    options: [
-      { label: t('links.type.link'), value: 'link' },
-      { label: t('links.type.file'), value: 'file' },
-      { label: t('links.type.text'), value: 'text' },
-    ],
-  },
+
   slug: {
     disabled: isEdit,
   },
@@ -88,7 +81,7 @@ const dependencies = [
 const form = useForm({
   validationSchema: toTypedSchema(EditLinkSchema),
   initialValues: {
-    domain: link.value.domain || 'socipro.site',
+    domain: link.value.domain || 'rte.site',
     slug: link.value.slug,
     url: link.value.url,
     title: link.value.title,

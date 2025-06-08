@@ -9,7 +9,7 @@ export const nanoid = (length: number = slugDefaultLength) => customAlphabet('23
 
 export const LinkSchema = z.object({
   id: z.string().trim().max(26).default(nanoid(10)),
-  domain: z.string().trim().max(255),
+  domain: z.enum(['socipro.site', 'instantnews.me']).default('socipro.site'),
   slug: z.string().trim().max(2048).regex(new RegExp(slugRegex)).default(nanoid()),
   url: z.string().trim().url().max(2048),
   title: z.string().trim().max(2048).optional(),
