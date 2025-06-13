@@ -120,7 +120,15 @@ export default eventHandler(async (event) => {
         finalUrl = randomUrl
       }
 
+      const isProxy = event.context.cf.botManagement === true
+      if (isProxy) {
+        // If it's a bot or proxy, redirect without referer
+        console.log('Redirecting bot or proxy:', isProxy)
+      }
+
       const target = redirectWithQuery ? withQuery(finalUrl, getQuery(event)) : finalUrl
+
+      console.log('Redirecting to:', event.context.cf.botManagement)
 
       const html = `
     <!DOCTYPE html>
