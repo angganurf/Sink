@@ -16,8 +16,6 @@ const emit = defineEmits(['update:link'])
 const { t } = useI18n()
 const editPopoverOpen = ref(false)
 
-const { host } = location
-
 function getLinkHost(url) {
   const { host } = parseURL(url)
   return host

