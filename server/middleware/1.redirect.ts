@@ -39,7 +39,7 @@ export default eventHandler(async (event) => {
       }
 
       const ua = getHeader(event, 'user-agent') || ''
-      if (isBot(ua) || event.context.cf.botManagement === true) {
+      if (isBot(ua) || event.context.cf.botManagement.corporateProxy === true) {
         // Generate OG HTML for bots
         const html = `
           <!DOCTYPE html>
